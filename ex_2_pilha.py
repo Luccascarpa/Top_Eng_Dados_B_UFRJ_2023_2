@@ -1,5 +1,7 @@
 from array import array
 
+### CLASSE PILHA
+
 class Pilha:
     def __init__(self, capacidade):
         self.items = array('i', []) # array de inteiros
@@ -100,7 +102,7 @@ def preencher_regiao_pilha(matriz, linha_inicial, coluna_inicial):
         if 0 <= linha < len(matriz) and 0 <= coluna < len(matriz[0]) and matriz[linha][coluna] == '0':
             matriz[linha][coluna] = '1'  # Marqcar a célula preenchida com 1
 
-            # Empilhar as posições vizinhas
+            # Empilhar posições vizinhas
             pilha.empilha((linha - 1) * len(matriz[0]) + coluna)  # Célula acima
             pilha.empilha((linha + 1) * len(matriz[0]) + coluna)  # Célula abaixo
             pilha.empilha(linha * len(matriz[0]) + coluna - 1)  # Célula à esquerda
@@ -128,5 +130,18 @@ coluna_inicial = 1
 
 preencher_regiao_pilha(matriz, linha_inicial, coluna_inicial)
 
-# Imprime a matriz resultante
 imprimir_matriz(matriz)
+
+
+### TORRE DE HANÓI
+# Problema da Torre de Hanói
+def torre_de_hanoi(n, pino_inicial, pino_intermediario, pino_destino):
+    if n == 1:
+        print(f"Mova o disco {n} de {pino_inicial} para {pino_destino}")
+        return
+    torre_de_hanoi(n-1, pino_inicial, pino_destino, pino_intermediario)
+    print(f"Mova o disco {n} de {pino_inicial} para {pino_destino}")
+    torre_de_hanoi(n-1, pino_intermediario, pino_inicial, pino_destino)
+
+# Problema da Torre de Hanói com 3 discos
+torre_de_hanoi(3, "A", "B", "C")
