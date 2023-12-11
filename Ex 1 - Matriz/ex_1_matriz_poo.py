@@ -178,7 +178,7 @@ def addition_page():
         print("Resultado:\n")
         print_matrix(matrix_calculator.add_matrices())
 
-    return False
+    return True
 
 
 def subtraction_page():
@@ -214,7 +214,7 @@ def subtraction_page():
         print("Resultado:\n")
         print_matrix(matrix_calculator.subtract_matrices())
 
-    return False
+    return True
 
 
 def multiply_by_scalar_page():
@@ -244,7 +244,7 @@ def multiply_by_scalar_page():
         print("Resultado:\n")
         print_matrix(matrix_calculator.multiply_by_scalar(scalar))
 
-    return False
+    return True
 
 # Criar "Páginas" da calculadora
 def multiplication_page():
@@ -282,7 +282,7 @@ def multiplication_page():
         print("Resultado:\n")
         print_matrix(matrix_calculator.multiply_matrices())
 
-    return False
+    return True
 
 def transpose_page():
     print("\n")
@@ -308,7 +308,7 @@ def transpose_page():
         print("Resultado:\n")
         print_matrix(matrix_calculator.transpose())
 
-    return False
+    return True
 
 def trace_page():
     print("\n")
@@ -334,7 +334,7 @@ def trace_page():
         print("Resultado:\n")
         print(f'Traço: {matrix_calculator.matrix_trace()}')
 
-    return False
+    return True
 
 def determinant_page():
     print("\n")
@@ -360,41 +360,40 @@ def determinant_page():
         print("Resultado:\n")
         print(f'Determinante: {matrix_calculator.matrix_determinant()}')
 
+    return True
+
+def quit():
+    print("Obrigado por usar a calculadora! Volte sempre!")
     return False
 
 # Testando
 if __name__ == "__main__":
-    print("Bem vindo à calculadora de matrizes")
-    print("Operações disponíveis:")
-    print("\t1 - Adição de matrizes")
-    print("\t2 - Subtração de matrizes")
-    print("\t3 - Multiplicação de matriz por um escalar")
-    print("\t4 - Multiplicação de matrizes")
-    print("\t5 - Transposição de matriz")
-    print("\t6 - Cálculo deo traço da matriz")
-    print("\t7 - Cálculo do determinante da matriz")
-    op = int(input("\nQual operação deseja realizar? "))
 
-    paths = {
-        1: addition_page,
-        2: subtraction_page,
-        3: multiply_by_scalar_page,
-        4: multiplication_page,
-        5: transpose_page,
-        6: trace_page,
-        7: determinant_page
-    }
+    run = True
 
-    paths[op]()
+    while run:
+        print("Bem vindo à calculadora de matrizes")
+        print("Operações disponíveis:")
+        print("\t1 - Adição de matrizes")
+        print("\t2 - Subtração de matrizes")
+        print("\t3 - Multiplicação de matriz por um escalar")
+        print("\t4 - Multiplicação de matrizes")
+        print("\t5 - Transposição de matriz")
+        print("\t6 - Cálculo deo traço da matriz")
+        print("\t7 - Cálculo do determinante da matriz")
+        print("\t0 - Para sair do programa")
+        op = int(input("\nQual operação deseja realizar? "))
 
-    # matrix1 = [[1, 2, 3], [4, 5, 6]]
-    # matrix2 = [[9, 0, 0], [6, 5, 0], [3, 2, 1]]
-
-    # calculator = MatrixCalculator(matrix2, matrix1)
-
-    # try:
-    #     result = calculator.matrix_determinant()
-    #     print("Resultado da soma das matrizes: ")
-    #     print(result)
-    # except ValueError as e:
-    #     print(e)
+        paths = {
+            0: quit,
+            1: addition_page,
+            2: subtraction_page,
+            3: multiply_by_scalar_page,
+            4: multiplication_page,
+            5: transpose_page,
+            6: trace_page,
+            7: determinant_page
+        }
+        
+        run = paths[op]()
+        print("\n\nVoltando ao menu...\n")
