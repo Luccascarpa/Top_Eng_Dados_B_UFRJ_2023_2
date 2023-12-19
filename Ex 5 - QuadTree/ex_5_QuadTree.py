@@ -41,7 +41,7 @@ class Quadtree:
             self.insert(current_node.data, current_node)
 
         if node.pos.x <= (current_node.top_left.x + current_node.bot_right.x) / 2:
-            # Indicates topLeftTree
+            # topLeftTree
             if node.pos.y <= (current_node.top_left.y + current_node.bot_right.y) / 2:
                 if current_node.top_left_tree is None:
                     current_node.top_left_tree = QuadtreeNode(
@@ -51,7 +51,7 @@ class Quadtree:
                     )
                 self.insert(node, current_node.top_left_tree)
 
-            # Indicates botLeftTree
+            # bottomLeftTree
             else:
                 if current_node.bot_left_tree is None:
                     current_node.bot_left_tree = QuadtreeNode(
@@ -62,7 +62,7 @@ class Quadtree:
                     )
                 self.insert(node, current_node.bot_left_tree)
         else:
-            # Indicates topRightTree
+            # topRightTree
             if node.pos.y <= (current_node.top_left.y + current_node.bot_right.y) / 2:
                 if current_node.top_right_tree is None:
                     current_node.top_right_tree = QuadtreeNode(
@@ -72,7 +72,7 @@ class Quadtree:
                     )
                 self.insert(node, current_node.top_right_tree)
 
-            # Indicates botRightTree
+            # bottomRightTree
             else:
                 if current_node.bot_right_tree is None:
                     current_node.bot_right_tree = QuadtreeNode(
@@ -93,25 +93,25 @@ class Quadtree:
             return current_node.data
 
         if point.x <= (current_node.top_left.x + current_node.bot_right.x) / 2:
-            # Indicates topLeftTree
+            # topLeftTree
             if point.y <= (current_node.top_left.y + current_node.bot_right.y) / 2:
                 if current_node.top_left_tree is None:
                     return None
                 return self.search(point, current_node.top_left_tree)
 
-            # Indicates botLeftTree
+            # bototmLeftTree
             else:
                 if current_node.bot_left_tree is None:
                     return None
                 return self.search(point, current_node.bot_left_tree)
         else:
-            # Indicates topRightTree
+            # topRightTree
             if point.y <= (current_node.top_left.y + current_node.bot_right.y) / 2:
                 if current_node.top_right_tree is None:
                     return None
                 return self.search(point, current_node.top_right_tree)
 
-            # Indicates botRightTree
+            # bottomRightTree
             else:
                 if current_node.bot_right_tree is None:
                     return None

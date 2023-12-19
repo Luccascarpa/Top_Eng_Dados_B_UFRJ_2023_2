@@ -84,10 +84,10 @@ def merge_sorted_runs(file1, file2, key_index):
 
     return merge_sorted(run1, run2, key_index)
 
-# Example usage:
+# Example de uso :
 input_filename = 'input.csv'
 output_filename = 'output.csv'
 elapsed_time, step_count = merge_sort_external(input_filename, output_filename)
 
-print(f"Elapsed Time: {elapsed_time} seconds")
-print(f"Number of Steps/Runs: {step_count}")
+print(f"Tempo decorrido: {elapsed_time} (segundos)")
+print(f"Número de passos: {step_count}")
